@@ -8,6 +8,10 @@ customer_risk_profiles= {
     102: {"name": "Sandesh","risk":"low","score":0.10},
 }
 
+@app.get("/customers")
+def get_customers(city: str, risk: str):
+    return {"city": city, "risk": risk}
+
 @app.get("/customer/{customer_id}")
 def get_customer_risk(customer_id:int):
     if customer_id not in customer_risk_profiles:
